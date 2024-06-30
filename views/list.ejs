@@ -1,0 +1,5 @@
+<% posts.forEach(post => { %>
+<div class="post-container" id="post-<%= post.id %>">
+  <h4 class="title"><%= post.message %> <span><%= post.id + 1 %></span></h4>
+</div>
+<% }) %>
