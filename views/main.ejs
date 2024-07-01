@@ -4,15 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/listItem.css">
+  <link rel="stylesheet" href="css/output.css">
   <title>Infinite Scolling</title>
 </head>
 
 <body>
-  <div class="list-container">
-    <%- include('list.ejs') %>
+  <div>
+
+    <% if(data.posts) { %>
+    <div class="list-container">
+      <%- include('list.ejs', {data}) %>
+    </div>
+    <% } %>
+
+    <% if(data.post) { %>
+    <%- include('post.ejs', {data}) %>
+    <%} %>
   </div>
+
 </body>
-<script src="js/main.js" type="module"></script>
+<script src="js/main.js" defer type="module"></script>
 
 </html>

@@ -19,7 +19,7 @@ const next_posts_load_state_schema = z.object({
 app.get("/", async (req: Request, res: Response) => {
   const initialPosts: Post[] = posts.slice(0, 10);
 
-  res.status(200).render("main", { posts: initialPosts });
+  res.status(200).render("main", { data: { posts: initialPosts } });
 });
 
 app.get("/loadNext", async (req: Request, res: Response) => {
@@ -28,7 +28,19 @@ app.get("/loadNext", async (req: Request, res: Response) => {
 
   const nextPosts: Post[] = posts.slice(offset, 10 * page);
 
-  res.status(200).render("list", { posts: nextPosts });
+  res.status(200).render("list", { data: { posts: nextPosts } });
+});
+
+app.get("/:postId", async (req: Request, res: Response) => {
+  const postId: number = parseInt(req.params.postId as string, 10);
+
+  const post: Post | null = posts.find((p) => p.id === postId) ?? null;
+
+  if (!post) {
+    return res.status(404).render("error");
+  }
+
+  res.status(200).render("main", { data: { post: post } });
 });
 
 app.listen(5000, () => {

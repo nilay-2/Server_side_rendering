@@ -19,6 +19,8 @@ export const nextPosts = async (): Promise<string> => {
     nextLoadState.offset = nextLoadState.offset + 10;
     nextLoadState.page++;
 
+    console.log(htmlContent);
+
     return htmlContent;
   } catch (error) {
     console.log(error);

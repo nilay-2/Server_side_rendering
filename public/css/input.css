@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .post-container {
+    padding: 10px 5px;
+    background-color: #f3f3f3;
+  }
+
+  .list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
