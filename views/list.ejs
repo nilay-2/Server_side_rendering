@@ -1,6 +1,6 @@
 <% data.posts.forEach(post => { %>
 <div class="post-container" id="post-<%= post.id %>">
   <h4><%= post.message %> <span><%= post.id + 1 %></span></h4>
-  <a href="/<%= post.id %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">click to view full post</a>
+  <a href="/post/<%= post.id %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">click to view full post</a>
 </div>
 <% }) %>
