@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "//": "below script is for prod environment---------------------",
-    "start": "node ./build/index.js",
-    "//": "the below is for build stage-----------------------------",
-    "build": "concurrently \" npx tsc \" \" copyfiles -u 1 ./public/js/**/* ./build/public/ \" \" copyfiles -u 1 ./views/**/* ./build/views \" \" copyfiles -u 1 ./public/css/output.css ./build/public \"",
     "//": "Below scripts are for dev environment--------------------",
+    "start": "node ./build/index.js",
+    "build": "concurrently \" npx tsc \" \" copyfiles -u 1 ./public/js/**/* ./public/lib/**/* ./build/public/ \" \" copyfiles -u 1 ./views/**/* ./build/views \" \" copyfiles -u 1 ./public/css/output.css ./build/public \"",
     "webpack": "npx webpack",
     "style": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
     "start:dev": "nodemon --watch . --ext ts --exec ts-node ./index.ts",

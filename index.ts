@@ -31,7 +31,7 @@ app.get("/loadNext", async (req: Request, res: Response) => {
   res.status(200).render("list", { data: { posts: nextPosts } });
 });
 
-app.get("/:postId", async (req: Request, res: Response) => {
+app.get("/post/:postId", async (req: Request, res: Response) => {
   const postId: number = parseInt(req.params.postId as string, 10);
 
   const post: Post | null = posts.find((p) => p.id === postId) ?? null;
@@ -41,6 +41,10 @@ app.get("/:postId", async (req: Request, res: Response) => {
   }
 
   res.status(200).render("main", { data: { post: post } });
+});
+
+app.get("/signup", async (req: Request, res: Response) => {
+  res.status(200).render("signup");
 });
 
 app.listen(5000, () => {
