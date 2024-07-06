@@ -19,6 +19,11 @@ const next_posts_load_state_schema = z.object({
 app.get("/", async (req: Request, res: Response) => {
   const initialPosts: Post[] = posts.slice(0, 10);
 
+  return res.status(200).json({
+    status: "success",
+    message: "Welcome to the world of server side rendering",
+  });
+
   res.status(200).render("main", { data: { posts: initialPosts } });
 });
 
