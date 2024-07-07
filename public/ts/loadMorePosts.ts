@@ -1,13 +1,16 @@
 import { nextLoadState } from "./state";
 
+const endpointURL = "https://postit-jui9.onrender.com";
+
 export const nextPosts = async (): Promise<string> => {
   try {
     const posts = await fetch(
-      `http://localhost:5000/loadNext?page=${nextLoadState.page}&offset=${nextLoadState.offset}`,
+      `${endpointURL}/loadNext?page=${nextLoadState.page}&offset=${nextLoadState.offset}`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": endpointURL,
         },
       }
     );
